@@ -4,4 +4,8 @@ Online book exchange platform
 ```python
 python manage.py runserver
 
+
+def myfunc():
+  print("hello")
+
 ```
