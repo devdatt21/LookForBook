@@ -1,0 +1,62 @@
+{% extends 'master.html'%} {%load static %} {% block page %} book details {% endblock page %} {% block content %}
+<section class="detailsPage">
+    <div class="dbrow">
+        <div class="dbcol-bx1">
+            <div class="img-bx">
+                <img src="{{book.book_img.url}}" alt="">
+
+            </div>
+
+        </div>
+        <div class="dbcol-bx2">
+            <!-- <h3>Death Before Breakfastr</h3> -->
+            <h3>{{book.book_title}}</h3>
+            <!-- <h4>George Bellairs</h4> -->
+            <h4>{{book.book_author}}</h4>
+            <div class="category">
+                <p>Category: <span> {{book.book_category}} </span> <br> Language: <span>{{book.book_language}}</span></p>
+
+            </div>
+            <div class="about_book">
+                <h4>Book Description</h4>
+                <p>{{book.book_des}}</p>
+            </div>
+
+
+            <div class="about_book">
+                <h4>User Details</h4>
+                <p>Book Owner : <b>{{book.user}}</b></p>
+                <p>Email : <b>{{book.user.email}}</b></p>
+                <p>City : <b>{{book.city}}</b></p>
+            </div>
+
+            <button class="btn btn-outline-dark w-100 " id="sendBtn">Send Request</button>
+
+            <div id="message_box">
+                <form action="/sendmsg/" method="post">
+                    {% csrf_token %}
+
+                    <input type="hidden" name="cuser" value="{{user}}">
+                    <input type="hidden" name="ruser" value="{{book.user}}">
+                    <input type="hidden" name="selectedbook" value="{{book.id}}">
+                    <input type="text" name="message" class=" w-100 " style="padding: 5px;margin: 5px 0px; " id="send_message " placeholder="Write message ">
+
+
+                    <input type="submit" class="btn btn-outline-dark w-100 " id="btn_submit " value="submit">
+
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        let textbox = document.getElementById('message_box');
+        let sendBtn = document.getElementById('sendBtn');
+        sendBtn.addEventListener('click', function() {
+            textbox.style.display = " block ";
+            sendBtn.style.display = "none "
+        })
+    </script>
+</section>{% endblock content %}

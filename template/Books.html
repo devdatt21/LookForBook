@@ -1,0 +1,63 @@
+{% extends 'master.html'%} {% block page %} Books {% endblock page %} {% load static %} {% block content %}
+<div class="menu" id="menu">
+
+    <div class="right-part">
+        <div class="title">
+            <br>
+            <h4 id="fiction" style="text-transform: capitalize;">| {{catName}} books</h4>
+            <p>Choose books you want to Exchange</p>
+        </div>
+
+        <div class="menu-content books_page_menu" id="fiction">
+            {% if books %}
+            <!--row1-->
+            {% for book in books %}
+
+            <div class="box ">
+                <div class="card" style="width: 18rem;">
+                    <div class="img-book-bx">
+                        <a href="/book_details/{{book.id}}">
+                            <img src="{{book.book_img.url}}" class="card-img-top" alt="...">
+                        </a>
+                    </div>
+                    <div class="text">
+                        <div class="book_title">
+                            <div class="row d-flex justify-content-between">
+                                <div class="col-lg-6">
+                                    <h6>{{book.book_title}}</h6>
+                                    <p>{{book.book_author}}</p>
+                                    <p>{{book.user}}</p>
+                                    <!-- <p>{{book.city}}</p> -->
+
+                                </div>
+                                <div class="col-lg-6">
+                                    <a href="mailto:{{book.email}}?subject=LookforBook-Exchange Request &body=Hello,I wanted this {{book.book_title}} book from you my name is {{user.first_name}}, We can share contact number for further communication." class="btn btn-outline-dark">
+                                    Mail Now</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %} {% else %}
+
+            <div class="nodata" style="text-align:center;">
+                <div class="img" style="width:100px;margin:auto; ">
+                    <img src="/static/images/nodata.jfif" style="width:200px;">
+                    <br>
+                    <br>
+                </div>
+                <p> No Books found !! <a href="/request/" class="btn btn-outline-dark">request</a> book </p>
+
+            </div>
+
+
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

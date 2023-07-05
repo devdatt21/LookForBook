@@ -1,0 +1,195 @@
+{% extends 'master.html'%} {%load static %} {% block page %} Home {% endblock page %} {% block content %}
+<section class="hero" style="margin-top:100px ;">
+    <div class="container py-5">
+        <div class="row my-2">
+            <div class="col-lg-6">
+                <h1 class="head1">Exchange Your Books Here..</h1>
+                <p class="text1">Welcome To The Most Trusted Book Exchange Platform, here you can exchange your old books with others.
+                </p>
+
+                <div class="btns">
+                    <a href="/books/" class="btn btn-primary">  Explore  </a>
+                </div>
+            </div>
+            <div class="col-lg-6 img-out-bx">
+                <div class="img-bx py-1">
+                    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                    <lord-icon src="https://cdn.lordicon.com/hursldrn.json" trigger="loop" colors="primary:#4be1ec,secondary:#cb5eee" state="loop" style="width:550px;height:310px">
+                    </lord-icon>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--hero banner  -->
+    <!-- <section class="hero"> -->
+    <div class="hero-content my-20">
+        <form action="/books/">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" name="q" id="searchbox" placeholder="Find Books Area/Title/Author Name/User Name Wise" style="border-style: groove;">
+            <!-- <input type="button" value="Search" class="btn"> -->
+        </form>
+    </div>
+    <!-- </section> -->
+
+</section>
+
+
+
+<!-- category section -->
+<section class="category">
+    <div class="container">
+        <h2 class="head1 head2">Category</h2>
+        <hr>
+        <div class="row my-5">
+
+            <div class="col-lg-4">
+                <div class="box">
+                    <div class="img2">
+                        <a href="/books/">
+                            <img src="{% static 'images/img2.svg' %}" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <h4>Finance</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="box">
+                    <div class="img2">
+                        <a href="/books/">
+                            <img src="{% static 'images/img3.svg' %}" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <h4>Love Story</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="box">
+                    <div class="img2">
+                        <a href="/books/">
+                            <img src="{% static 'images/img4.svg' %}" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <h4>Knowledge</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="box">
+                    <div class="img2">
+                        <a href="/books/">
+                            <img src="{% static 'images/nonfic.svg' %}" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <h4>Fiction</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="box">
+                    <div class="img2">
+                        <a href="/books/">
+                            <img src="{% static 'images/fic.svg' %}" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <h4>Non-Fiction</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="box">
+                    <div class="img2">
+                        <a href="/books/">
+
+                            <img src="{% static 'images/fun.svg' %}" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <h4>Comic</h4>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- about section  -->
+<section class="about my-5 ">
+    <div class="container">
+        <h2 class="head1 head2">About The Problem</h2>
+        <hr>
+        <div class="row py-5">
+            <div class="col-lg-6">
+                <div class="img-bx">
+                    <img src="{% static 'images/img5.svg' %}" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <p class="text1">In Barter system there is not a buyer nor a seller, in this there are 2 peers who wants to give something to take something. So for the execution of this deal we have to connect 2 peers whose matching each other's need, that means</p>
+
+                <p class="text1">Peer 1's book list must contain atleast 1 item which matches the peer 2's request list And Peer 2's book list must contain 1 item which matches the peer 1's request list.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<section class="copyright">
+    <div class="container">
+        <hr>
+        <div class="cpy">
+            <div>
+                <ul>
+                    <li><a href="https://wa.me/9106663804" target="_blank"><i class="fa-brands fa-whatsapp"></i></i> <span></span></a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i> <span></span></a></li>
+                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i><span></span> </a></li>
+                    <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i><span></span></a></li>
+                    <li><a href="https://youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i><span></span></a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text1">&copy;copyright2023</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- contact section -->
+<!-- 
+<section class="contact content-bx" id="contact-section">
+    <div class="title">
+        <h4>| Contact Us</h4>
+        <p>if you have any problem. Please Let us know</p>
+    </div>
+      <div class="about-bx ">
+        <div class="col-bx  about_img size">
+               <img  src="../static/images/img1.svg"/> 
+        </div>
+         <div class="col-bx size">
+             <div >
+                <div class="contact-details"><a href="mailto:devdattrupapara21@gmail.com"><i class="fas fa-envelope"></i>lookbookhelp@gmail.com </a></div>
+                <div class="contact-details"><a href="#"> <i class="fas fa-mobile"></i> +91 111 222 333</a></div>
+             </div>
+         </div>
+     </div>
+</section> -->
+{% endblock content %}

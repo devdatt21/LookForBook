@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block page %}{% endblock page %}-LookForBook</title>
+    {% load static %}
+    <!--  font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- bootstarp css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <!-- mycss -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'images/fav.png' %}" type="image/x-icon">
+
+
+
+</head>
+
+<body>
+
+
+    {% if messages %} {% for mesg in messages%}
+    <div class="alert alert-{{mesg.tags}} alert-dismissible fade show massage-fixed" role="alert">
+        <strong>{{mesg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %} {% endif %}
+
+
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><b> <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/hursldrn.json"
+                    trigger="loop"
+                    colors="primary:#4be1ec,secondary:#cb5eee"
+                    state="loop"
+                    style="width:70px;height:50px">
+                </lord-icon>
+            </lord-icon>  LookForBook</b></a>
+
+
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">
+                            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                            <!-- <lord-icon src="https://cdn.lordicon.com/hwixfird.json" trigger="morph" colors="primary:#121331" style="width:25px;height:25px"> -->
+                            </lord-icon> Home</a>
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/add_book/">
+                                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                <!-- <lord-icon src="https://cdn.lordicon.com/btnwcdpq.json" trigger="hover" style="width:25px;height:25px"> -->
+                                </lord-icon> Add Book</a>
+
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/request/">
+                                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                <!-- <lord-icon src="https://cdn.lordicon.com/rwzqttux.json" trigger="hover" style="width:25px;height:25px"> -->
+                                </lord-icon> Request Book</a>
+
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-atomic="true" href="/books/">
+
+
+                                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                <!-- <lord-icon src="https://cdn.lordicon.com/zjptfwtq.json" trigger="morph" colors="primary:#121331" style="width:25px;height:25px"> -->
+                                </lord-icon>Books</a>
+                        </li>
+
+
+
+                    </li>
+                    <!-- 
+                    </li>
+
+
+                    <a class="nav-link" href="/">
+
+
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/zjptfwtq.json" trigger="morph" colors="primary:#121331" style="width:25px;height:25px">
+                        </lord-icon>Search</a>
+
+                    </li> -->
+                    <li>
+
+                        <!-- <div class="">
+                            <form action="/books/">
+
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="search" name="q" id="searchbox" placeholder="Find Books Area/Title/Author Name/User Name Wise" style="border-style: groove;">
+                            </form>
+                        </div> -->
+                        <!-- <form class="form-inline my- my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form> -->
+
+
+
+                    </li>
+
+                    </li>
+
+
+
+
+
+
+
+
+                </ul>
+                <div class="d-flex">
+
+
+
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li>
+                            <a class="nav-link" href="/donate/">
+
+
+                                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/zjptfwtq.json" trigger="morph" colors="primary:#121331" style="width:25px;height:25px">
+                                </lord-icon>Donate</a>
+
+                        </li>
+                        {% if user.is_authenticated %} {% if user.is_superuser%}
+                        <li><a class="nav-link dropdown-toggle" href="/admin/">Hello,<b>{{user.username}}</b></a></li>
+                        {% else %}
+                        <li><a class="nav-link dropdown-toggle" style="color: black;" href="/profile/">Hey,  <b>{{user.username}}</b></a></li>
+                        {%endif%}
+                        <li><a class="nav-link login-btn" href="/logout/">Logout</a></li>
+
+                        {% else %}
+                        <li><a class="nav-link login-btn" href="/login/">login</a></li>
+                        <li><a class="nav-link login-btn" href="/signup/">signup</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    {% block content %} {% endblock content %}
+
+
+
+
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+</body>
+
+</html>

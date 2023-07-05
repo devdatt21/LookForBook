@@ -1,0 +1,117 @@
+{% extends 'master.html'%} {%load static %} {% block page %} Add Book {% endblock page %} {% block content %}
+<div class="container" style="margin-top:120px ;">
+    <div class="box" style="width:100%; margin:auto;">
+        <!-- Section: Design Block -->
+        <section class="">
+            <!-- Jumbotron -->
+            <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+                <div class="container">
+                    <div class="row gx-lg-4 align-items-center">
+                        <div class="col-lg-6 mb-5 mb-lg-0">
+                            <h1 class="my-5 display-3 fw-bold ls-tight">
+                                Be Honest To Get <br />
+                                <span class="text-primary">The Best</span>
+                            </h1>
+                            <h3 style="color: hsl(217, 10%, 50.8%)">
+                                Take a real photo with your device and upload, by that you can see book's condition and can decide really quick.
+                            </h3>
+                        </div>
+
+                        <div class="col-lg-5 mb-5 mb-lg-0">
+                            <div class="card">
+                                <div class="card-body py-5 px-md-5">
+                                    <form method="post" action="/add_book/" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <!-- 2 column grid layout with text inputs for the first and last names -->
+                                        <div class="row">
+
+                                        </div>
+
+                                        <!-- Book Title input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="form3Example3" name="book_title" class="form-control" placeholder="Book Name" required/>
+                                            <label class="form-label" for="form3Example3">Book Title </label>
+                                        </div>
+                                        <!-- Book Author input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="form3Example4" name="book_author" class="form-control" placeholder="Book Author" required />
+                                            <label class="form-label" for="form3Example4">Book Author</label>
+                                        </div>
+                                        <!-- ISBN Number input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="tel" id="form3Example4" name="isbn" class="form-control" placeholder="ISBN Number" required />
+                                            <label class="form-label" for="form3Example4">ISBN Number</label>
+                                        </div>
+                                        <!-- City input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="form3Example4" name="city" class="form-control" placeholder="City/Area" required />
+                                            <label class="form-label" for="form3Example4">City/Area</label>
+                                        </div>
+                                        <!-- Book Category input -->
+                                        <div class="form-outline mb-4">
+                                            <select name="book_category" class="form-control" id="">
+                      {% for cat in book_category %}
+                        <option value="{{cat.category_name}}">{{cat.category_name}}</option>
+                      {% endfor %}
+                    </select>
+                                            <label class="form-label" for="form3Example4">Category</label>
+
+                                            <!-- <label class="form-label" for="form3Example4">ISBN Number</label> -->
+                                        </div>
+                                        <!-- Book Language input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="form3Example4" name="book_language" class="form-control" placeholder="Book Language" required />
+                                            <label class="form-label" for="form3Example4">Book Language</label>
+                                        </div>
+                                        <!-- Image input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="file" id="form3Example4" name="book_img" accept="image/png, image/jpeg, image/svg, image/jpg" class="form-control" placeholder="Book Image" required />
+                                            <label class="form-label" for="form3Example4">Book Image</label>
+                                        </div>
+                                        <!-- Description input -->
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="form3Example4" name="book_des" class="form-control" placeholder="Book Description" required />
+                                            <label class="form-label" for="form3Example4">Book Description</label>
+                                        </div>
+
+
+
+                                        <!-- Submit button -->
+                                        <button type="submit" class="btn btn-primary btn-block mb-4">
+                  Add Book
+                </button>
+
+                                        <!-- Register buttons -->
+                                        <!-- <div class="text-center">
+                  <p>or sign up with:</p>
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-google"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-twitter"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-link btn-floating mx-1">
+                    <i class="fab fa-github"></i>
+                  </button>
+                </div> -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Jumbotron -->
+        </section>
+        <!-- Section: Design Block -->
+
+    </div>
+</div>
+
+{% endblock content %}

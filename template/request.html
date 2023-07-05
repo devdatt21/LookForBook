@@ -1,0 +1,44 @@
+{% extends 'master.html'%}
+{%load static %}
+{% block page %} 
+Request Book
+{% endblock page %}
+
+{% block content %}
+
+<section class="request-book">
+    
+
+   
+    <div class="request-bx" id ="request">
+      <div class="title">
+        <h2>| Request </h2>
+        <p>Request a Book Which is not listed.
+        </p>
+    </div>
+     <form action ="/request/" method="post">
+       {% csrf_token %}
+         <span id="request-input-bx">
+              <input type="text" name="reqbook" placeholder="Enter Book Name" required>
+              &nbsp; &nbsp;&nbsp; &nbsp;
+              <input type="text" name="reqauthor" placeholder="Enter Author Name" required></asp:TextBox>
+         </span>
+         &nbsp; &nbsp;
+         <span>
+          <input type="submit"  value="Request" class="btn_css" OnClick="btn_requesst_Click"/>
+         </span>
+      <br /><br />
+         <asp:Label ID="request_massage" runat="server" Text=""></asp:Label>
+         <asp:Label ID="request_f_massage" runat="server" Text=""></asp:Label>
+         <div>
+         <asp:Label ID="request_book_details" runat="server" Text=""></asp:Label>
+        </div>
+         <div class="note">
+         </div>
+   </form>
+  </div>  
+
+  
+</section>
+
+{% endblock content %}

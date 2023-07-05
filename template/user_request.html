@@ -1,0 +1,46 @@
+{% extends 'master.html'%}
+{% block page %} 
+Requested Book list
+{% endblock page %}
+
+{% block content %}
+{% load static %}
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 col-xl-4">
+  
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body text-center">
+              
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Author</th>
+                        <!-- <th scope="col">Language</th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for book in bookrequest %}
+                      <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{book.book_name}}</td>
+                        <td>{{book.author_name}}</td>
+                        <!-- <td>{{book.book_language}}</td> -->
+                      </tr>
+                    {% endfor %}
+                     
+                    </tbody>
+                  </table>
+               
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
